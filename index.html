@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>水果消消乐 - 拯救公主</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- 首页 -->
+  <div id="home-screen">
+    <div id="home-bg"></div>
+    <div id="home-content">
+      <div id="home-title">
+        <div id="home-emoji">🍎🍊🍋🍇🍓</div>
+        <h1>水果消消乐</h1>
+        <p>拯救公主</p>
+      </div>
+
+      <div id="leaderboard">
+        <div id="leaderboard-title">🏆 最佳成绩</div>
+        <ol id="leaderboard-list"></ol>
+      </div>
+
+      <div id="home-btns">
+        <button id="btn-quick-play" class="game-btn home-btn">⚔️ 快速游戏</button>
+        <button id="btn-how-to-play" class="game-btn home-btn">💡 玩法技巧</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 玩法说明弹窗 -->
+  <div id="how-to-overlay" class="hidden">
+    <div id="how-to-box">
+      <div id="how-to-title">💡 玩法技巧</div>
+      <div id="how-to-content">
+        <p>🎯 <b>目标：</b>消除水果攻击怪物，在时间内达到目标分数</p>
+        <p>👆 <b>操作：</b>点击选中水果 → 再点击相邻水果交换<br>或直接拖拽水果到相邻位置</p>
+        <p>💣 <b>炸弹：</b>4连消生成，触发后爆炸3×3范围</p>
+        <p>🌈 <b>彩虹：</b>5连消生成，与任意水果交换可消除全场同色</p>
+        <p>🔥 <b>连击：</b>连续消除倍率递增，最高5倍伤害！</p>
+        <p>👸 <b>目标：</b>击败9关怪物，拯救公主！</p>
+      </div>
+      <button id="btn-how-to-close" class="game-btn">明白了！</button>
+    </div>
+  </div>
+
+  <div id="game-container" class="hidden">
+    <!-- 背景层 -->
+    <div id="background"></div>
+
+    <!-- 顶部 UI -->
+    <div id="top-ui">
+      <div id="level-display">关卡<span id="level-num">1</span></div>
+      <div id="timer-display">
+        <span id="timer">120</span>
+        <span id="timer-label">秒</span>
+      </div>
+      <div id="score-display">分数<span id="score-num">0</span></div>
+    </div>
+
+    <!-- 怪物区域 -->
+    <div id="monster-container">
+      <canvas id="monster-canvas" width="80" height="80"></canvas>
+      <div id="monster-info">
+        <div id="monster-name">史莱姆</div>
+        <div id="monster-hp-bar"><div id="monster-hp-fill"></div></div>
+        <div id="monster-hp-text">100 / 100</div>
+      </div>
+    </div>
+
+    <!-- 目标提示 -->
+    <div id="goal-display">目标：<span id="goal-text">消除 500 分</span></div>
+
+    <!-- 棋盘 -->
+    <div id="board-wrapper">
+      <canvas id="game-canvas"></canvas>
+      <div id="combo-display"></div>
+    </div>
+
+    <!-- 底部按钮 -->
+    <div id="bottom-ui">
+      <button id="btn-restart" class="game-btn">重新开始</button>
+      <button id="btn-pause" class="game-btn">暂停</button>
+      <button id="btn-home" class="game-btn">首页</button>
+    </div>
+
+    <!-- 弹窗 -->
+    <div id="overlay" class="hidden">
+      <div id="overlay-box">
+        <div id="overlay-title"></div>
+        <div id="overlay-msg"></div>
+        <button id="overlay-btn" class="game-btn">继续</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="board.js"></script>
+  <script src="renderer.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
